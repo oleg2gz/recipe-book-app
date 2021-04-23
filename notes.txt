@@ -1,0 +1,19 @@
+1 - Recipe List & Recipe
+
+Recipe placeholder:
+- header with title and two buttons;
+- content in divs:
+-- divs with two spans each (for name and value);
+-- div with a span for name and a div for values;
+
+Create an array of sample recipes in App (each sample has an id).
+
+Provide this array through props to Recipe List.
+
+Receive props object in Recipe List and destructure recipe array.
+
+Return a div with the result of iteration through the array of recipes with map (new array).
+Each iteration take one recipe object and return one Recipe component with all recipe object properties spread as attribues (props).
+Don't forget add an attribute with a name 'key' holding the value of a recipe id!
+
+Receive props object in Recipe, distructure it and replace placeholders with received values.
