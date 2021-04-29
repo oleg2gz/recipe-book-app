@@ -1,4 +1,14 @@
-﻿1 - Recipe List & Recipe
+﻿0 - Structure files and folders
+
+- npx create-react-app .
+- npm run
+- delete all unneeded files in public and src folders;
+- edit all left files: delete all unneeded entries;
+- create sub-folders in src folder: css, components and fonts;
+- move App.js to the components folder.
+
+
+1 - Recipe List & Recipe
 
 Recipe placeholder:
 - header with title and two buttons;
@@ -16,19 +26,19 @@ Return a div with the result of iteration through the array of recipes with map 
 Each iteration take one object with recipe data in it and return one Recipe component with all recipe object properties spread as attribues (props).
 Don't forget add an attribute with a name 'key' holding the value of a recipe id!
 
-!!! Forgotten in video !!! Add "Add Recipe" button at the bottom of Recipe List.
+!!! Forgotten in video !!! Add "Add Recipe" button in a div container at the bottom of Recipe List.
 
 Recipe
 Receive props object, distructure it in bulk and replace placeholders with received values.
 
 
-2. Ingredient List & Ingredient
+2 - Ingredient List & Ingredient
 
 App
 Add ingredients to the array of sample recipes: this property is an array of objects, each with id, name and amount for one ingredient.
 
 Recipe
-Ingredients value is received and distructured along with the other recipe data. Send as props to the Ingredient List, rendered at the end of JSX.
+Ingredients value is received and distructured along with the other recipe data. Send as props to the Ingredient List, rendered in a div tag at the end of JSX.
 
 Ingredient List
 Receive and directly distructure the props object (ingredients).
@@ -39,4 +49,79 @@ Ingredient
 Receive and directly distructure the props object (ingredient), return a fragment with two spans - name and amount values for an ingredient.
 
 
-3. 
+3 - Styling recipes and ingredients
+
+App
+import '../css/app.css'
+
+app.css
+  @import-normalize;
+  @import 'font.css';
+  @import 'buttons.css;
+  ...
+- font-family Gotham Rounded and font size (25 pixels);
+- remove margin and padding from the body;
+- margin on right of 5 pixels;
+
+font.css
+- set fonts to Gotham Rounded;
+
+RecipeList
+Add classes (className) for recipe-list.css into JSX: 
+- component container - "recipe-list";
+- button container - "recipe-list__add-recipe-btn-container";
+- button - "btn btn--primary";
+
+recipe-list.css
+- border shown on the right and height of the viewport;
+- width for the section (half of the display width);
+- button (center, padding on top and bottom or 30 pixels);
+
+buttons.css
+- inherit font size, set bold weight;
+- no background, no border, no outline;
+- padding of 5 and 20 pixels;
+- border-radius of 5 pixels;
+- pointer for cursor;
+- light blue (hsl(200, 100%, 50%)) and white colors as primary;
+- red (hsl(0, 100%, 50%)) and white colors as danger;
+- saturation on hover 15% less than standard;
+
+Recipe
+Add classes (className) for recipe.css into JSX: 
+- component container - "recipe";
+- header - "recipe__header", "recipe__title", "btn btn--primary mr-1", "btn btn--danger";
+- content lines - "recipe__row", "recipe__label", "recipe_value" + "recipe__value--indented" + "recipe__instructions";
+
+recipe.css
+- title - font size of 1.75 rem, no margin;
+- header - flex with space-between and items aligned in the center, margin on bottom of 30 pixels;
+- container - padding on bottom of 40 pixels and other directions of 20 pixels, border on the bottom;
+- last recipe container - no border on the bottom, padding on the bottom of 10 pixels;
+- content - margin on top of 10 pixels, name has margin on right of 5 pixels, font for the value is lighter (300);
+- indented content - margins on the top and on the lefte of 10 and 20 pixels;
+- instructions on new lines - preserve white spaces (white-space: pre-wrap;).
+
+IngredientList
+Add classes (className) for ingredient-list.css into JSX: 
+- component container - "ingredient-grid";
+
+ingredient-list.css
+- container - display grid with 2 columns (repeat(2, auto)), row-gap of 5 pixels and column-gap of 40 pixels, justify-content - flex-start;
+
+
+4 - Recipe Add and Delete Button Interactivity
+
+Recipe Add and Delete Button Context
+
+UseEffect Hook and LocalStorage
+
+RecipeEdit
+
+Styling RecipeEdit
+
+Selected Recipe State and Recipe Edit Values
+
+Recipe Edit Input Interactivity
+
+Last touches
