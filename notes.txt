@@ -1,19 +1,42 @@
-1 - Recipe List & Recipe
+﻿1 - Recipe List & Recipe
 
 Recipe placeholder:
 - header with title and two buttons;
 - content in divs:
--- divs with two spans each (for name and value);
--- div with a span for name and a div for values;
+-- divs with two spans each (for property name and its value);
+-- div with a span for property name and a div for property description;
 
-Create an array of sample recipes in App (each sample has an id).
-
+App
+Create an array of sample recipes (each sample has an id!).
 Provide this array through props to Recipe List.
 
-Receive props object in Recipe List and destructure recipe array.
-
+Recipe List
+Receive props object and directly destructure recipe array.
 Return a div with the result of iteration through the array of recipes with map (new array).
-Each iteration take one recipe object and return one Recipe component with all recipe object properties spread as attribues (props).
+Each iteration take one object with recipe data in it and return one Recipe component with all recipe object properties spread as attribues (props).
 Don't forget add an attribute with a name 'key' holding the value of a recipe id!
 
-Receive props object in Recipe, distructure it and replace placeholders with received values.
+!!! Forgotten in video !!! Add "Add Recipe" button at the bottom of Recipe List.
+
+Recipe
+Receive props object, distructure it in bulk and replace placeholders with received values.
+
+
+2. Ingredient List & Ingredient
+
+App
+Add ingredients to the array of sample recipes: this property is an array of objects, each with id, name and amount for one ingredient.
+
+Recipe
+Ingredients value is received and distructured along with the other recipe data. Send as props to the Ingredient List, rendered at the end of JSX.
+
+Ingredient List
+Receive and directly distructure the props object (ingredients).
+This time show another way of creating elements for rendering - save a new array into a variable (ingredientElements) first, and then put this variable inside a div tag in JSX.
+Other details are the same: map the array of ingredients, take one ingredient object at a time and spread inside returned Ingredient component. Don't forget to add the key argument equal to the ingredient id!
+
+Ingredient
+Receive and directly distructure the props object (ingredient), return a fragment with two spans - name and amount values for an ingredient.
+
+
+3. 
