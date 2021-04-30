@@ -132,7 +132,26 @@ Recipe
 
 5 - Recipe Add and Delete Button Context
 
-UseEffect Hook and LocalStorage
+App
+- import React createContext() method;
+- create and export context for Recipe (RecipeContext);
+- set an object with handler functions as a value to pass using context (recipeContextValue);
+- add context provider and pass the value object (RecipeContext.Provider);
+- make appropriate corrections (remove unneeded props);
+
+RecipeList
+- import React useContext() hook and RecipeContext from App;
+- distructure handleRecipeAdd to a variable from received context;
+- make appropriate corrections (remove unneeded values from props disturcturing and props passing);
+
+Recipe
+- import React useContext() hook and RecipeContext from App;
+- distructure handleRecipeDelete to a variable from received context;
+- make appropriate corrections (remove unneeded values from props disturcturing);
+
+
+6 - UseEffect Hook and LocalStorage
+
 
 RecipeEdit
 
