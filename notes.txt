@@ -112,7 +112,25 @@ ingredient-list.css
 
 4 - Recipe Add and Delete Button Interactivity
 
-Recipe Add and Delete Button Context
+App
+- install the utility to generate unique id: npm i uuid
+- import the utitlity: import { v4 as uuidv4 } from 'uuid'
+- set the array of sample recipes as default state and directly destruct it to the state (recipes) and the method to set the state (setRecipes), don't forget to make corrections in the props accordingly;
+- create two handler functions and provide in props object to RecipeList:
+-- handleRecipeAdd that 1) establishes a dummy recipe object (newRecipe with unique id!), 2) sets a new state as an array with spread current state and this dummy object; 
+-- handleRecipeDelete that that 1) filters current state by id (not equal to the deleted recipe's id), 2) sets a new state using filtered array.
+
+RecipeList
+- receive and deconstruct props object with recipes and handlers;
+- provide handleRecipeDelete in props object to Recipe;
+- add click event on "Add Recipe" button and use handleRecipeAdd handler;
+
+Recipe
+- receive and deconstruct handleRecipeDelete handler along with other properties in props object;
+- add click event on "Delete" button and use handleRecipeDelete, providing id as an argument (put this call inside of an arrow function!);
+
+
+5 - Recipe Add and Delete Button Context
 
 UseEffect Hook and LocalStorage
 
