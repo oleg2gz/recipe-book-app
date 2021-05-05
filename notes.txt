@@ -133,27 +133,36 @@ Recipe
 5 - Recipe Add and Delete Button Context
 
 App
-- import React createContext() method;
+- import React createContext method;
 - create and export context for Recipe (RecipeContext);
 - set an object with handler functions as a value to pass using context (recipeContextValue);
 - add context provider and pass the value object (RecipeContext.Provider);
 - make appropriate corrections (remove unneeded props);
 
 RecipeList
-- import React useContext() hook and RecipeContext from App;
+- import React useContext hook and RecipeContext from App;
 - distructure handleRecipeAdd to a variable from received context;
 - make appropriate corrections (remove unneeded values from props disturcturing and props passing);
 
 Recipe
-- import React useContext() hook and RecipeContext from App;
+- import React useContext hook and RecipeContext from App;
 - distructure handleRecipeDelete to a variable from received context;
 - make appropriate corrections (remove unneeded values from props disturcturing);
 
 
 6 - UseEffect Hook and LocalStorage
 
+App
+- set the key for local storage (LOCAL_STORAGE_KEY) with a value 'cookingWithReact.recipes' above (!) the component function;
 
-RecipeEdit
+- save recipes:
+-- import useEffect hook and set it to watch after recipes array - every time a recipe added or deleted, save the stringified array to local storage;
+
+- load recipes (should be placed before save effect - sequence is important!):
+-- set another useEffect hook to run only once when the app starts (second parameter is empty array), get recipes array from local storage in a variable (recipeJSON), check if the value is not equal to null and re-set the state with parsed array;
+
+
+7 - RecipeEdit
 
 Styling RecipeEdit
 
