@@ -194,8 +194,41 @@ RecipeIngredientEdit
 
 8 - Styling RecipeEdit
 
-Selected Recipe State and Recipe Edit Values
+RecipeEdit
+- apply classes:
+-- for close button - "recipe-edit__remove-button-container", "btn recipe-edit__remove-button";
+-- for inputs and labels: "recipe-edit__details-grid", "recipe-edit__label", "recipe-edit__input";
+-- for ingredients: "recipe-edit__ingredient-grid", 
+-- for add button: "recipe-edit__add-ingredient-btn-container", "btn btn--primary";
+
+RecipeIngredientEdit
+- apply classes: "recipe-edit__input", "btn btn--danger";
+
+recipe-edit.css
+- close button:
+-- align text in container to the end;
+-- no background, outline and border, no padding, font-size is 1.5 rem;
+
+- details:
+-- grid with first column of auto and second of 1fr;
+-- row gap of 10 pixels and column-gap of 40 pixels;
+-- font-weight for labels is bold;
+-- inputs with no outline and black border of 1 pixel, border-radius of 5 pixels, inherited font-size, padding of 5 and 10 pixels, width of 100%;
+-- textarea with no resize and height of 200 pixels;
+
+- ingredients:
+-- grid with 3 auto-sized columns (repeat(3, auto)) and gap of 10 pixels;
+-- indent by setting margin top of 20 pixels and margin left of 40 pixels;
+
+- add ingredient button:
+-- for container - margin on top of 20 pixels and align text to the center;
+
+- media query for max-width of 1000 pixels - for both grid containers make one column of 1fr;
+
+
+9 - Selected Recipe State and Recipe Edit Values
 
 Recipe Edit Input Interactivity
 
 Last touches
+
