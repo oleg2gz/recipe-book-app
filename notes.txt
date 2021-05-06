@@ -59,6 +59,7 @@ app.css
   @import 'font.css';
   @import 'buttons.css;
   ...
+- !!! Forgotten in video !!! box-sizing as border-box;
 - font-family Gotham Rounded and font size (25 pixels);
 - remove margin and padding from the body;
 - margin on right of 5 pixels;
@@ -164,7 +165,34 @@ App
 
 7 - RecipeEdit
 
-Styling RecipeEdit
+App
+- add RecipeEdit component for rendering;
+
+RecipeEdit (start)
+- component returns a div container with class "recipe-edit";
+- there is a closing button (&times;) also in a div inside the container;
+
+recipe-edit.css
+- import to app.css;
+- container for edit section (".recipe-edit") takes fixed position - 0 to the right and top, width of 50%, maximum hight of 100%, auto overflow on y, padding on the top 10 pixels and 30 pixels for other sides;
+
+RecipeEdit (continue)
+- div wrapper for labels and inputs;
+- 3 sets of labels and inputs linked by id and htmlFor attributes, 1 set of a label and a textarea;
+
+- line break and a label for ingredients;
+
+- div wrapper for ingredient section;
+- 3 divs for name, amount and an empty div (placeholder for a missing button);
+- render a couple of RecipeIngredientEdit components;
+
+- div wrapper for "Add Ingredient" button;
+
+RecipeIngredientEdit
+- component returns a fragment with 2 inputs and a closing button (&times;);
+
+
+8 - Styling RecipeEdit
 
 Selected Recipe State and Recipe Edit Values
 
