@@ -178,7 +178,7 @@ recipe-edit.css
 
 RecipeEdit (continue)
 - div wrapper for labels and inputs;
-- 3 sets of labels and inputs linked by id and htmlFor attributes, 1 set of a label and a textarea;
+- 4 sets of labels and inputs linked by id and htmlFor attributes, change the last input to textarea (not in video!);
 
 - line break and a label for ingredients;
 
@@ -228,7 +228,32 @@ recipe-edit.css
 
 9 - Selected Recipe State and Recipe Edit Values
 
-Recipe Edit Input Interactivity
+App
+- set a new state for selected recipe id, empty by default (selectedRecipeId, setSelectedRecipeId);
+- set a variable (selectedRecipe) that will contain selected recipe found by its id or undefined if no recipe is selected;
+- provide selected recipe value in recipe attribute as props for RecipeEdit component;
+
+- refactor RecipeEdit render - make it hidden by default and show it if selected recipe is not undefined ( {selectedRecipe && <RecipeEdit...);
+
+- create a function with one parameter - id - that handles Edit button click and sets selected recipe id state (handleRecipeSelect);
+- include the function to the recipeContextValue object;
+
+Recipe
+- deconstruct handleRecipeSelect function from Context too and use with click event on Edit button;
+
+RecipeEdit
+- receive and directly deconstruct the recipe object from props;
+- use recipe object properties as values for inputs and textarea (!);
+- map the array with ingredients, providing a unique key and an ingredient object as props for returning RecipeIngredientEdit component;
+
+RecipeIngredientEdit
+- receive and directly deconstruct the ingredient object from props;
+- use ingredient object properties as values for inputs;
+
+
+10 - Recipe Edit Input Interactivity
+
+
+
 
 Last touches
-

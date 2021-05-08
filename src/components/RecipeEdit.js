@@ -1,6 +1,6 @@
 import RecipeIngredientEdit from './RecipeIngredientEdit'
 
-export default function RecipeEdit() {
+export default function RecipeEdit({ recipe }) {
   return (
     <div className="recipe-edit">
       <div className="recipe-edit__remove-button-container">
@@ -15,6 +15,7 @@ export default function RecipeEdit() {
           name="name"
           id="name"
           className="recipe-edit__input"
+          value={recipe.name}
         />
         <label htmlFor="cookTime" className="recipe-edit__label">
           Cook Time
@@ -24,6 +25,7 @@ export default function RecipeEdit() {
           name="cookTime"
           id="cookTime"
           className="recipe-edit__input"
+          value={recipe.cookTime}
         />
         <label htmlFor="servings" className="recipe-edit__label">
           Servings
@@ -34,6 +36,7 @@ export default function RecipeEdit() {
           name="servings"
           id="servings"
           className="recipe-edit__input"
+          value={recipe.servings}
         />
         <label htmlFor="instructions" className="recipe-edit__label">
           Instructions
@@ -42,7 +45,8 @@ export default function RecipeEdit() {
           name="instructions"
           id="instructions"
           className="recipe-edit__input"
-        ></textarea>
+          value={recipe.instructions}
+        />
       </div>
       <br />
       <label className="recipe-edit__label">Ingredients</label>
@@ -50,8 +54,9 @@ export default function RecipeEdit() {
         <div>Name</div>
         <div>Amount</div>
         <div></div>
-        <RecipeIngredientEdit />
-        <RecipeIngredientEdit />
+        {recipe.ingredients.map((ingredient) => (
+          <RecipeIngredientEdit key={ingredient.id} ingredient={ingredient} />
+        ))}
       </div>
       <div className="recipe-edit__add-ingredient-btn-container">
         <button className="btn btn--primary">Add Ingredient</button>
