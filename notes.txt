@@ -253,7 +253,37 @@ RecipeIngredientEdit
 
 10 - Recipe Edit Input Interactivity
 
+App
+- create a function which takes two parameters - an id and a new recipe (handleRecipeChange);
+- make a copy of recipes array (newRecipes);
+- find the index of the recipe using its id into a variable (index);
+- set the recipe in the array under that index to a new recipe
+  (newRecipes[index] = recipe);
+- re-set the state with the new array of recipes;
+- add this function to the existing context (recipeContextValue);
+
+RecipeEdit
+- receive and destruct handleRecipeChange from the context;
+
+- create a helper function (handleChange) with one parameter - object of changes (changes), that passes to handleRecipeChange the current recipe id and a new object with the spread current recipe and the changes object;
+
+- add to all inputs onChange event handler, that takes an event and returns handleChange called with an object of changes ({ name: e.target.value });
+- servings input with a number should convert the value to a number or set it to empty string if there is no value ({ servings: parseInt(e.target.value) || '' });
+
+- create a function which takes two parameters - an id and a new ingredient (handleIngredientChange);
+- make a copy of ingredients array (newIngredients);
+- find the index of the ingredient using its id into a variable (index);
+- set the ingredient in the array under that index to a new ingredient
+  (newIngredients[index] = ingredient);
+- handleChange({ ingredients: newIngredients });
+- provide the functions in props to RecipeIngredientEdit;
+
+RecipeIngredientEdit
+- receive and destruct from props handleIngredientChange;
+
+- create a helper function (handleChange) with one parameter - object of changes (changes), that passes to handleIngredientChange the current ingredient id and a new object with the spread current ingredient and the changes object;
+
+- add to all inputs onChange event handler, that takes an event and returns handleChange called with an object of changes ({ ingredient.name: e.target.value });
 
 
-
-Last touches
+11 - Last touches
