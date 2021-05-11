@@ -1,9 +1,10 @@
 import { useContext } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import { RecipeContext } from './App'
 import RecipeIngredientEdit from './RecipeIngredientEdit'
 
 export default function RecipeEdit({ recipe }) {
-  const { handleRecipeChange } = useContext(RecipeContext)
+  const { handleRecipeChange, handleRecipeSelect } = useContext(RecipeContext)
 
   function handleChange(changes) {
     handleRecipeChange(recipe.id, { ...recipe, ...changes })
@@ -16,10 +17,29 @@ export default function RecipeEdit({ recipe }) {
     handleChange({ ingredients: newIngredients })
   }
 
+  function handleIngredientAdd() {
+    const newIngredient = {
+      id: uuidv4(),
+      name: '',
+      amount: '',
+    }
+
+    handleChange({ ingredients: [...recipe.ingredients, newIngredient] })
+  }
+
+  function handleIngredientDelete(id) {
+    handleChange({ ingredients: recipe.ingredients.filter((i) => i.id !== id) })
+  }
+
   return (
     <div className="recipe-edit">
       <div className="recipe-edit__remove-button-container">
-        <button className="btn recipe-edit__remove-button">&times;</button>
+        <button
+          className="btn recipe-edit__remove-button"
+          onClick={() => handleRecipeSelect(undefined)}
+        >
+          &times;
+        </button>
       </div>
       <div className="recipe-edit__details-grid">
         <label htmlFor="name" className="recipe-edit__label">
@@ -80,11 +100,17 @@ export default function RecipeEdit({ recipe }) {
             key={ingredient.id}
             ingredient={ingredient}
             handleIngredientChange={handleIngredientChange}
+            handleIngredientDelete={handleIngredientDelete}
           />
         ))}
       </div>
       <div className="recipe-edit__add-ingredient-btn-container">
-        <button className="btn btn--primary">Add Ingredient</button>
+        <button
+          className="btn btn--primary"
+          onClick={() => handleIngredientAdd()}
+        >
+          Add Ingredient
+        </button>
       </div>
     </div>
   )

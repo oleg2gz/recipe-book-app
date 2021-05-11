@@ -239,11 +239,12 @@ App
 - include the function to the recipeContextValue object;
 
 Recipe
-- deconstruct handleRecipeSelect function from Context too and use with click event on Edit button;
+- deconstruct handleRecipeSelect from the Context and use with click events on Edit button;
 
 RecipeEdit
-- receive and directly deconstruct the recipe object from props;
-- use recipe object properties as values for inputs and textarea (!);
+- destructure handleRecipeSelect from the Context and use with click events on the closing button with undefined as an argument (not in this video);
+
+- deconstruct the recipe object from props and use its properties as values for inputs and textarea (!);
 - map the array with ingredients, providing a unique key and an ingredient object as props for returning RecipeIngredientEdit component;
 
 RecipeIngredientEdit
@@ -287,3 +288,24 @@ RecipeIngredientEdit
 
 
 11 - Last touches
+
+RecipeEdit
+- create a function handling adding ingredients (handleIngredientAdd) that creates a new ingredient object with a unique id and empty properties (newIngredient), calls handleChange function with the ingredients set to a new array with spread original array of ingredients and the new ingredient object;
+- use with click events on "Add Ingredient" button;
+
+- create a function handling deleting ingredients (handleIngredientDelete) that receives an id and calls handleChange with the ingredients set to the original array of ingredients filtered by the id;
+- pass this function to RecipeIngredientEdit in props object;
+
+RecipeIngredientEdit
+- destruct handleIngredientDelete from props and use with click events on deleting button;
+
+App
+- refactor handeRecipeAdd function - add calling setSelectedRecipeId with the new recipe id and remove all value placeholders in the new recipe object;
+
+- refactor handleRecipeDelete - check if selectedRecipeId not equal to null and equal to the provided id, call setSelectedRecipeId with undefined;
+
+
+Further ideas:
+- add a button to remove the app key from local storage;
+- search recipes;
+- change local storage to database;
